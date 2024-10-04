@@ -6,9 +6,14 @@ export default function Home() {
       <div className="bg-[#FFFAE5] h-screen grid grid-cols-1 lg:grid-cols-2">
         {/* Left Section */}
         <div className="text-center flex flex-col justify-center space-y-6 bg-[#FFFAE5] p-10 h-full">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900">
-            ``Greener Future``
-          </h1>
+        {/* <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3EA9F5]">
+          The eco mouse trap
+        </h1> */}
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900">
+          For clean air,<br/>
+          please care !
+        </h1>
+
           <Link href="/Explore" className="bg-yellow-400 text-green-900 py-2 px-4 rounded-full font-semibold 
             transform transition-transform duration-200 ease-in-out 
             hover:scale-105 hover:shadow-lg">

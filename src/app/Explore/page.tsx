@@ -160,7 +160,7 @@ function DemoPageContent({ pathname }: { pathname: string }) {
         textAlign: 'center',
       }}
     >
-      <ComponentToRender />
+      <ComponentToRender  />
     </Box>
   );
 }
@@ -187,7 +187,7 @@ const Explore: React.FC = () => {
       theme={demoTheme}
     >
       <DashboardLayout>
-        <DemoPageContent pathname={pathname} />
+        <DemoPageContent  pathname={pathname} />
       </DashboardLayout>
     </AppProvider>
   );
