@@ -1,10 +1,7 @@
 import React from 'react';
 
 
-interface SamplePageProps {
-  title: string;
-  description: string;
-}
+
 
 const DataVisualization: React.FC = ({}) => {
 

@@ -2,12 +2,9 @@
 // components/Explore.tsx
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import DescriptionIcon from '@mui/icons-material/Description';
+
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
 import StorageRoundedIcon from '@mui/icons-material/StorageRounded';
@@ -25,13 +22,13 @@ import type { Router, Navigation } from '@toolpad/core';
 // import components
 import HelpfulVideos from '@/app/components/HelpfulVideos'; // Your custom components
 import Visualization from '@/app/components/Visualization';
-// import AiChatbot from './components/AiChatbot';
+import AiChatbot from '@/app/components/AiChatbot';
 import DataVisualization from '@/app/components/DataVisualization';
 // import DataAnalysis from './components/DataAn alysis';
 const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/getting-start/helpful-videos': HelpfulVideos,
   '/getting-start/visualization': Visualization,
-  // '/getting-start/ai-chatbot': AiChatbot,
+  '/getting-start/ai-chatbot': AiChatbot,
   '/data-exploration/data-visualization': DataVisualization,
   // '/data-exploration/data-analysis': DataAnalysis,
   // Add other paths with their corresponding components

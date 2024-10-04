@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
-import axios from 'axios'; // Make sure to import axios
-
+import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<{ user: string; bot: string }[]>([]);
@@ -13,7 +11,7 @@ const ChatBot: React.FC = () => {
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    // Mocking Gemini API request for the bot's response
+    // Fetching Gemini API response for the bot's response
     const botResponse = await fetchGeminiResponse(input); 
 
     setMessages((prevMessages) => [
@@ -23,7 +21,6 @@ const ChatBot: React.FC = () => {
 
     setInput('');
   };
-
 
   const fetchGeminiResponse = async (message: string): Promise<string> => {
     try {
@@ -38,7 +35,6 @@ const ChatBot: React.FC = () => {
       throw new Error('Failed to fetch response from Gemini API');
     }
   };
-  
 
   return (
     <div className="flex flex-col items-center bg-gray-100" style={{
@@ -53,12 +49,12 @@ const ChatBot: React.FC = () => {
             <div key={index} className="flex flex-col space-y-2">
               <div className="flex justify-end">
                 <div className="bg-blue-500 text-white py-2 px-4 rounded-lg max-w-xs md:max-w-md break-words">
-                  <strong>User:</strong> {msg.user}
+                  <strong>User:</strong> <ReactMarkdown>{msg.user}</ReactMarkdown>
                 </div>
               </div>
               <div className="flex justify-start">
                 <div className="bg-gray-300 py-2 px-4 rounded-lg max-w-xs md:max-w-md break-words">
-                  <strong>Gemini:</strong> {msg.bot}
+                  <strong>Gemini:</strong> <ReactMarkdown>{msg.bot}</ReactMarkdown>
                 </div>
               </div>
             </div>
@@ -73,16 +69,14 @@ const ChatBot: React.FC = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a message..."
         />
-
-
-      <Button variant="contained"   onClick={handleSend}
-      endIcon={<SendIcon />}>
-      </Button>
-
-
+        <Button variant="contained" onClick={handleSend} endIcon={<SendIcon />}>
+          Send
+        </Button>
       </div>
     </div>
   );
 };
+
+
 
 export default ChatBot;
