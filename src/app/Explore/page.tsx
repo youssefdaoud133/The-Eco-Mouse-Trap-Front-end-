@@ -24,6 +24,7 @@ import HelpfulVideos from '@/app/components/HelpfulVideos'; // Your custom compo
 import Visualization from '@/app/components/Visualization';
 import AiChatbot from '@/app/components/AiChatbot';
 import DataVisualization from '@/app/components/DataVisualization';
+import PublicShare from '@/app/components/PublicShare'
 // import DataAnalysis from './components/DataAn alysis';
 const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/getting-start/helpful-videos': HelpfulVideos,
@@ -31,6 +32,7 @@ const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/getting-start/ai-chatbot': AiChatbot,
   '/data-exploration/data-visualization': DataVisualization,
   // '/data-exploration/data-analysis': DataAnalysis,
+  '/community/public-share' : PublicShare,
   // Add other paths with their corresponding components
 };
 
