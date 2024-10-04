@@ -42,7 +42,7 @@ export default function Home() {
       ></iframe>
     </div>
   </div>
-  <div className="bg-[#37818A] flex justify-center items-center">
+  <div className="bg-[#B6EFD4] flex justify-center items-center">
     <div className="relative w-full h-0 pb-[100%]"> {/* 1:1 Aspect Ratio */}
       <iframe 
         src="https://lottie.host/embed/84d6c3aa-369d-41a3-baf3-2a4c18beaa95/Zy9WvXfHPz.json"

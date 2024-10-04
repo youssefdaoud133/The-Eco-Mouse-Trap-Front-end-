@@ -21,7 +21,7 @@ const DataVisualization: React.FC = ({}) => {
       }}>
     <iframe
     title="Interactive Map"
-    src="/NOAA_Map.html"
+    src="/last_map.html"
     style={{ border: 'none', width: '100%', height: '100%' }}
   />
   </div>
