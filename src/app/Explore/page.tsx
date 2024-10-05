@@ -25,6 +25,8 @@ import Visualization from '@/app/components/Visualization';
 import AiChatbot from '@/app/components/AiChatbot';
 import DataVisualization from '@/app/components/DataVisualization';
 import PublicShare from '@/app/components/PublicShare'
+import CreateIssue from '@/app/components/CreateIssue'
+import Issues from '@/app/components/Issues'
 // import DataAnalysis from './components/DataAn alysis';
 const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/getting-start/helpful-videos': HelpfulVideos,
@@ -33,6 +35,8 @@ const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/data-exploration/data-visualization': DataVisualization,
   // '/data-exploration/data-analysis': DataAnalysis,
   '/community/public-share' : PublicShare,
+  '/community/create-issue' : CreateIssue,
+  '/community/issues' :Issues
   // Add other paths with their corresponding components
 };
 

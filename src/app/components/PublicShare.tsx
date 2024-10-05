@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   TextField,
@@ -28,21 +28,64 @@ const YourPage = () => {
   const [country, setCountry] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  // Handle post submission
-  const handlePostSubmit = () => {
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("http://localhost:5000/posts");
+        const data = await response.json();
+        console.log("Fetched data:", data);
+  
+        if (Array.isArray(data)) {
+          setPosts(data);  // Directly set data, as it is the array of posts
+          console.log("Posts set successfully:", data);
+        } else {
+          console.error("Data structure is not an array");
+        }
+      } catch (error) {
+        console.error("Failed to fetch posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchPosts();
+  }, []);
+      
+
+  const handlePostSubmit = async () => {
     if (name.trim() && country.trim() && content.trim()) {
       const newPost: Post = { name, country, content };
-      setPosts((prevPosts) => [...prevPosts, newPost]);
-      setName("");
-      setCountry("");
-      setContent("");
+
+      try {
+        const response = await fetch("http://localhost:5000/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newPost),
+        });
+
+        if (response.ok) {
+          const createdPost = await response.json();
+          setPosts((prevPosts) => [...prevPosts, createdPost]);
+          console.log("Post created and added to state:", createdPost);
+          setName("");
+          setCountry("");
+          setContent("");
+        } else {
+          console.error("Failed to create post:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Failed to create post:", error);
+      }
     }
   };
 
   return (
     <Container maxWidth="md" sx={{ mt: 6 }}>
-      {/* Section 1: Write and Publish a Post */}
       <Box component="section" sx={{ mb: 6 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           Create a Post
@@ -56,6 +99,7 @@ const YourPage = () => {
                 variant="outlined"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </Grid>
             <Grid item xs={12}>
@@ -65,6 +109,7 @@ const YourPage = () => {
                 variant="outlined"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
+                required
               />
             </Grid>
             <Grid item xs={12}>
@@ -76,6 +121,7 @@ const YourPage = () => {
                 variant="outlined"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
+                required
               />
             </Grid>
             <Grid item xs={12}>
@@ -97,38 +143,45 @@ const YourPage = () => {
         <Typography variant="h4" component="h2" gutterBottom>
           All Posts
         </Typography>
-        {posts.length > 0 ? (
-          posts.map((post, index) => (
-            <Card key={index} sx={{ mb: 4 }}>
-              <CardHeader
-                avatar={
-                  <Avatar sx={{ bgcolor: blue[500] }}>
-                    {post.name.charAt(0)}
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title={post.name}
-                subheader={post.country}
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography
-                  variant="body1"
-                  color="textPrimary"
-                  sx={{ textAlign: "left", wordWrap: "break-word", whiteSpace: "pre-wrap" }} // Added properties
-                >
-                  {post.content}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))
+        {loading ? (
+          <Typography color="textSecondary">Loading posts...</Typography>
+        ) : posts.length > 0 ? (
+          <>
+            {console.log("Rendering posts:", posts)}
+            {posts.map((post, index) => (
+              <Card key={index} sx={{ mb: 4 }}>
+                <CardHeader
+                  avatar={
+                    <Avatar sx={{ bgcolor: blue[500] }}>
+                      {post.name.charAt(0)}
+                    </Avatar>
+                  }
+                  action={
+                    <IconButton aria-label="settings">
+                      <MoreVertIcon />
+                    </IconButton>
+                  }
+                  title={post.name}
+                  subheader={post.country}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    sx={{
+                      textAlign: "left",
+                      wordWrap: "break-word",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
+                    {post.content}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </>
         ) : (
-          <Typography color="textSecondary">
-            No posts yet. Write something!
-          </Typography>
+          <Typography color="textSecondary">No posts yet. Write something!</Typography>
         )}
       </Box>
     </Container>
