@@ -73,7 +73,6 @@ export default function Home() {
 
       </div>
 
-      <div className="bg-[#FFFFFF] min-h-screen"></div>
     </>
   );
 }

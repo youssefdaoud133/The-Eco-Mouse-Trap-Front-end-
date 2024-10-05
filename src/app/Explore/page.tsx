@@ -13,7 +13,7 @@ import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import Diversity3RoundedIcon from '@mui/icons-material/Diversity3Rounded';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import ChatIcon from '@mui/icons-material/Chat';
-import LayersIcon from '@mui/icons-material/Layers';
+// import LayersIcon from '@mui/icons-material/Layers';
 import ReportGmailerrorredRoundedIcon from '@mui/icons-material/ReportGmailerrorredRounded';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { AppProvider } from '@toolpad/core/AppProvider';
@@ -131,11 +131,7 @@ const NAVIGATION: Navigation = [
   //     },
   //   ],
   // },
-  {
-    segment: 'integrations',
-    title: 'Integrations',
-    icon: <LayersIcon />,
-  },
+
 ];
 
 const demoTheme = createTheme({
