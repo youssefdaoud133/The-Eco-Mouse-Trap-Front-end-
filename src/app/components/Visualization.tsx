@@ -17,14 +17,14 @@ declare const createUnityInstance: (
 const GreenhouseGasSection: React.FC = () => {
   useEffect(() => {
     const canvas = document.querySelector("#unity-canvas") as HTMLCanvasElement;
-    const buildUrl = "/Build";
-    const loaderUrl = buildUrl + "/Green House Simualtion.loader.js";
+    const buildUrl = "/Build"; // Update this if your build folder is different
+    const loaderUrl = buildUrl + "/Green House Simulation.loader.js"; // Ensure the file path is correct
 
     const config = {
       arguments: [],
-      dataUrl: buildUrl + "/Green House Simualtion.data",
-      frameworkUrl: buildUrl + "/Green House Simualtion.framework.js",
-      codeUrl: buildUrl + "/Green House Simualtion.wasm",
+      dataUrl: buildUrl + "/Green House Simulation.data",
+      frameworkUrl: buildUrl + "/Green House Simulation.framework.js",
+      codeUrl: buildUrl + "/Green House Simulation.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "The Eco Mouse Trap",
       productName: "GreenHouseSimulation",
@@ -101,34 +101,34 @@ const GreenhouseGasSection: React.FC = () => {
 
   return (
     <>
-<div
-  id="unity-container"
-  className="unity-desktop"
-  style={{
-    display: 'flex',              // Flexbox layout
-    justifyContent: 'center',      // Centers horizontally
-    alignItems: 'center',          // Centers vertically
-    width: '100%',                 // Full width
-    height: '100vh',               // Full viewport height
-    maxWidth: '100%',              // Avoid overflow horizontally
-    overflow: 'hidden',            // Ensure no overflow
-  }}
->      <canvas id="unity-canvas" tabIndex={-1}></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+      <div
+        id="unity-container"
+        className="unity-desktop"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100vh',
+          maxWidth: '100%',
+          overflow: 'hidden',
+        }}
+      >
+        <canvas id="unity-canvas" tabIndex={-1}></canvas>
+        <div id="unity-loading-bar" style={{ display: 'block' }}>
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
         </div>
+        <div id="unity-warning"></div>
       </div>
-      <div id="unity-warning"></div>
-
-    </div>
       <div id="unity-footer">
-          <div id="unity-fullscreen-button"></div>
-          <div id="unity-build-title">GreenHouseSimulation</div>
+        <div id="unity-fullscreen-button" style={{ cursor: 'pointer' }}></div>
+        <div id="unity-build-title">GreenHouseSimulation</div>
       </div>
-      </>
+    </>
   );
 };
 
-export default GreenhouseGasSection;
+export default GreenhouseGasSection

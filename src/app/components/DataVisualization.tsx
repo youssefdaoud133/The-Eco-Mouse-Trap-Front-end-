@@ -7,6 +7,7 @@ const DataVisualization: React.FC = ({}) => {
 
 
   return (
+    <>
     <div
       id="unity-container"
       className="unity-desktop"
@@ -24,7 +25,16 @@ const DataVisualization: React.FC = ({}) => {
     src="/last_map.html"
     style={{ border: 'none', width: '100%', height: '100%' }}
   />
+
   </div>
+
+    <div className="bg-yellow-200 text-yellow-900 p-4 rounded-lg">
+      <p className="font-semibold">Note: When hovering the cursor over the markers it gives you the name of the site codes, while clicking on the markers gives you the concentration of CO2 and CH4 in ppm.</p>
+    </div>
+
+    </>
+    
+  
   );
 };
 

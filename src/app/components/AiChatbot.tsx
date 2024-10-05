@@ -104,20 +104,12 @@
             borderTop: `1px solid ${theme.palette.divider}`,
           }}
         >
-          <TextField
-            fullWidth
-            variant="outlined"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type a message..."
-            InputProps={{
-              sx: {
-                backgroundColor:
-                  theme.palette.mode === 'dark' ? '#333' : '#fff',
-                color: theme.palette.text.primary,
-              },
-            }}
-          />
+<TextField
+          fullWidth
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type a message..."
+        />  
           <Button
             variant="contained"
             sx={{ ml: 2 }}

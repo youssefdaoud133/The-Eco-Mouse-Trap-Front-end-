@@ -4,11 +4,20 @@ export default function Home() {
   return (
     <>
       <div className="bg-[#FFFAE5] h-screen grid grid-cols-1 lg:grid-cols-2">
-        {/* Left Section */}
+{/* Left Section */}
+
+
         <div className="text-center flex flex-col justify-center space-y-6 bg-[#FFFAE5] p-10 h-full">
         {/* <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3EA9F5]">
           The eco mouse trap
         </h1> */}
+        <img
+  src="/LOGO.png" // Adjust the path based on where your logo is stored
+  alt="Eco Mouse Trap Logo"
+  className="mx-auto mb-0" // Center the logo and add margin below
+  style={{ width: '200px', height: 'auto' }} // Adjust the width as needed, height auto to maintain aspect ratio
+/>
+
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900">
           For clean air,<br/>
           please care !

@@ -27,13 +27,14 @@ import DataVisualization from '@/app/components/DataVisualization';
 import PublicShare from '@/app/components/PublicShare'
 import CreateIssue from '@/app/components/CreateIssue'
 import Issues from '@/app/components/Issues'
-// import DataAnalysis from './components/DataAn alysis';
+import NAN from '@/app/components/nan'
+import DataAnalysis from '@/app/components/DataAnalysis';
 const COMPONENT_MAP: { [key: string]: React.FC } = {
   '/getting-start/helpful-videos': HelpfulVideos,
   '/getting-start/visualization': Visualization,
   '/getting-start/ai-chatbot': AiChatbot,
   '/data-exploration/data-visualization': DataVisualization,
-  // '/data-exploration/data-analysis': DataAnalysis,
+  '/data-exploration/data-analysis': DataAnalysis,
   '/community/public-share' : PublicShare,
   '/community/create-issue' : CreateIssue,
   '/community/issues' :Issues
@@ -141,7 +142,7 @@ const demoTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
-  colorSchemes: { light: true, dark: true },
+  // colorSchemes: { light: true, dark: true },
   breakpoints: {
     values: {
       xs: 0,
@@ -154,7 +155,7 @@ const demoTheme = createTheme({
 });
 
 function DemoPageContent({ pathname }: { pathname: string }) {
-  const ComponentToRender = COMPONENT_MAP[pathname] || HelpfulVideos;
+  const ComponentToRender = COMPONENT_MAP[pathname] || NAN;
 
   return (
     <Box

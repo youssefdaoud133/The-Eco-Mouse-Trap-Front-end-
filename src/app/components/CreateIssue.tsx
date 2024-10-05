@@ -77,8 +77,7 @@ const CreateIssueForm: React.FC = () => {
             >
               <option value="">Select Issue Type</option>
               <option value="improvement">Improvement</option>
-              <option value="bug">Bug</option>
-              <option value="feature">Feature Request</option>
+              <option value="bug">Report a problem</option>
             </select>
           </div>
           
