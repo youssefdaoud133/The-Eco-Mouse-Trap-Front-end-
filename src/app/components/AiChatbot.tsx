@@ -27,7 +27,7 @@
 
     const fetchGeminiResponse = async (message: string): Promise<string> => {
       try {
-        const response = await axios.post('http://localhost:5000/api/chat', {
+        const response = await axios.post('https://the-eco-mouse-trap-backend-atl7jkh55-youssefdaouds-projects.vercel.app/api/chat', {
           message: message, // Send the message in the request body
         });
         return response.data.data; // Adjust this based on your actual response structure

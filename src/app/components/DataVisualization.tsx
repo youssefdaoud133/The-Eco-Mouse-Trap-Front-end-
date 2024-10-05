@@ -22,7 +22,7 @@ const DataVisualization: React.FC = ({}) => {
       }}>
     <iframe
     title="Interactive Map"
-    src="/last_map.html"
+    src="./last_map.html"
     style={{ border: 'none', width: '100%', height: '100%' }}
   />
 
